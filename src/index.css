@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", Lato, Helvetica , sans-serif;
+  min-height: 100vh;
+  background-color: #f9f9f9;  
+}

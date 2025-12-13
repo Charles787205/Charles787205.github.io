@@ -1,0 +1,64 @@
+
+
+{
+  "projects": [
+    {
+      "title": "Lastmile INT Tracker Dashboard",
+      "description": "A full stack application for tracking last-mile logistics grade and performance.",
+      "tags": ["React", "Node.js", "Next.js", "MongoDB", "Laravel", "TypeSCript", "MySQL"],
+      "images": [
+        
+        "int_dashboard/Screenshot 2025-12-04 163419.png",
+        "int_dashboard/Screenshot 2025-12-04 163437.png",
+        "int_dashboard/Screenshot 2025-12-04 163448.png",
+        "int_dashboard/Screenshot 2025-12-04 163502.png",
+        "int_dashboard/Screenshot 2025-12-04 163521.png",
+        "int_dashboard/Screenshot 2025-12-04 163538.png",
+        "int_dashboard/Screenshot 2025-12-04 163629.png"
+      ],
+      "github": "#"
+    },
+    {
+      "title": "INT Audit Application",
+      "description": "A desktop application for auditing parcels from INT's client's database.",
+      "tags": ["TypeScript", "React", "Electron", "Tailwind", "Prisma", "SQLite", "Node.js"],
+      "images": [
+        "int_audit_app/Screenshot 2025-12-04 164629.png",
+        "int_audit_app/Screenshot 2025-12-04 164640.png",
+        "int_audit_app/Screenshot 2025-12-04 164652.png",
+        "int_audit_app/Screenshot 2025-12-04 164705.png",
+        "int_audit_app/Screenshot 2025-12-04 164727.png",
+        "int_audit_app/Screenshot 2025-12-04 164741.png",
+        "int_audit_app/Screenshot 2025-12-04 164750.png",
+        "int_audit_app/Screenshot 2025-12-04 164759.png",
+        "int_audit_app/Screenshot 2025-12-04 164811.png",
+        "int_audit_app/Screenshot 2025-12-04 164832.png"
+      ],
+      "github": "#"
+    },
+    {
+      "title": "SPX Tracking Helper",
+      "description": "Beautiful weather application with forecasts, interactive maps, and location-based recommendations.",
+      "tags": ["React", "API Integration", "Charts.js", "CSS"],
+      "images": [
+        "SPX Tracking Helper/Screenshot 2025-12-04 165706.png",
+         "SPX Tracking Helper/VID_20251130_190913.mp4"
+      ],
+      "github": "#"
+    },{
+      "title": "Dakflo – Medical Sample Management System",
+      "description": "A web-based platform designed for clinics to efficiently manage, track, and monitor stool sample testing. Features include sample tracking, patient data management, and real-time test results, streamlining laboratory operations for better accuracy and speed.",
+      "tags": ["React", "Drag & Drop", "AWS", "Express"],
+      "images": [
+        "dakflo/Screenshot 2025-12-04 172618 - Copy.png",
+        "dakflo/Screenshot 2025-12-04 172624 - Copy.png",
+        "dakflo/Screenshot 2025-12-04 172630 - Copy.png",
+        "dakflo/Screenshot 2025-12-04 172732 - Copy.png",
+        "dakflo/Screenshot 2025-12-04 173539 - Copy.png",
+        "dakflo/Screenshot 2025-12-04 173649 - Copy.png"
+      ],
+      "github": "#"
+    }
+    
+  ]
+}
