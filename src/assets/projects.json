@@ -16,7 +16,7 @@
         "int_dashboard/Screenshot 2025-12-04 163538.png",
         "int_dashboard/Screenshot 2025-12-04 163629.png"
       ],
-      "github": "#"
+      "github": "https://github.com/Charles787205/LM-Dashboard.git"
     },
     {
       "title": "INT Audit Application",
@@ -34,7 +34,7 @@
         "int_audit_app/Screenshot 2025-12-04 164811.png",
         "int_audit_app/Screenshot 2025-12-04 164832.png"
       ],
-      "github": "#"
+      "github": "https://github.com/Charles787205/IntAuditApp.git"
     },
     {
       "title": "SPX Tracking Helper",
@@ -57,8 +57,27 @@
         "dakflo/Screenshot 2025-12-04 173539 - Copy.png",
         "dakflo/Screenshot 2025-12-04 173649 - Copy.png"
       ],
-      "github": "#"
-    }
+      "github": "https://github.com/Charles787205/dakflo.git"
+    },
+    {
+      "title": "Cookery Borrowing System",
+      "description": "A desktop application that allows students to borrow cooking utensils and equipment from the school's culinary department.",
+      "tags": ["Python", "PyQT", "MySql"],
+      "images": [
+        "cookery_borrowing_system/Screenshot 2026-01-05 123648.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 124000.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 131705.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 131720.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 131740.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 131854.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 131907.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 131948.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 132022.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 132029.png",
+        "cookery_borrowing_system/Screenshot 2026-01-05 132037.png"
+      ],
+      "github": "https://github.com/Charles787205/CookeryBorrowingSystem.git"
+}
     
   ]
 }
