@@ -61,70 +61,98 @@ const Projects = () => {
   }, [selectedProject]);
 
   return (
-    <section id="projects" className="min-h-screen bg-slate-50 py-20">
-      <div className="max-w-7xl mx-auto px-6" ref={ref}>
+    <section id="projects" className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 py-32 overflow-hidden relative">
+      {/* 3D Grid Background Effect */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(100, 116, 139, 0.3) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(100, 116, 139, 0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px',
+          transform: 'perspective(1000px) rotateX(60deg) scale(2)',
+          transformOrigin: 'center top'
+        }} />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10" ref={ref}>
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-slate-900 mb-16 text-center"
+          transition={{ duration: 0.5 }}
+          className="text-5xl font-bold text-white mb-20 text-center"
         >
           Featured Projects
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              whileHover={{ y: -10 }}
-              onClick={() => openProject(project)}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
-            >
-              <div className="mb-4">
-                <div className="h-48 bg-linear-to-br from-slate-100 to-slate-200 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
-                  {isVideo(project.images[0]) ? (
-                    <video
-                      src={project.images[0]}
-                      className="w-full h-full object-cover"
-                      muted
-                      loop
-                      playsInline
-                    />
-                  ) : (
-                    <motion.img
-                      src={project.images[0]}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
+        {/* Grid Container */}
+        <div className="relative">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ delay: index * 0.05, duration: 0.3 }}
+                whileHover={{ 
+                  y: -20,
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
+                onClick={() => openProject(project)}
+                className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 hover:border-slate-600 transition-all duration-300 cursor-pointer shadow-2xl hover:shadow-blue-500/20 overflow-hidden"
+              >
+                {/* Glowing Effect on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 hover:from-blue-500/10 hover:to-purple-500/10 rounded-2xl transition-opacity duration-200 pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="h-48 bg-gradient-to-br from-slate-700 to-slate-900 rounded-xl mb-4 flex items-center justify-center overflow-hidden border border-slate-600/50">
+                    {isVideo(project.images[0]) ? (
+                      <video
+                        src={project.images[0]}
+                        className="w-full h-full object-cover"
+                        muted
+                        loop
+                        playsInline
+                      />
+                    ) : (
+                      <motion.img
+                        src={project.images[0]}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-2 transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-slate-300 mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-slate-700/50 text-slate-200 text-sm rounded-full border border-slate-600 backdrop-blur-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                
-                <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-slate-700 transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-slate-600 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
         {/* Modal */}
@@ -143,18 +171,18 @@ const Projects = () => {
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto relative"
+                className="bg-zinc-900 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto relative border border-zinc-800"
               >
                 {/* Close Button */}
                 <button
                   onClick={closeProject}
-                  className="absolute top-4 right-4 z-10 p-2 bg-white/90 rounded-full hover:bg-white transition-colors shadow-lg"
+                  className="absolute top-4 right-4 z-10 p-2 bg-zinc-800/90 rounded-full hover:bg-zinc-700 transition-colors shadow-lg"
                 >
-                  <X className="w-6 h-6 text-slate-900" />
+                  <X className="w-6 h-6 text-white" />
                 </button>
 
                 {/* Image/Video Slider */}
-                <div className="relative h-96 bg-slate-100">
+                <div className="relative h-96 bg-zinc-950">
                   {isVideo(selectedProject.images[currentImageIndex]) ? (
                     <motion.video
                       key={currentImageIndex}
@@ -186,15 +214,15 @@ const Projects = () => {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/90 rounded-full hover:bg-white transition-colors shadow-lg"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-zinc-800/90 rounded-full hover:bg-zinc-700 transition-colors shadow-lg"
                       >
-                        <ChevronLeft className="w-6 h-6 text-slate-900" />
+                        <ChevronLeft className="w-6 h-6 text-white" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/90 rounded-full hover:bg-white transition-colors shadow-lg"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-zinc-800/90 rounded-full hover:bg-zinc-700 transition-colors shadow-lg"
                       >
-                        <ChevronRight className="w-6 h-6 text-slate-900" />
+                        <ChevronRight className="w-6 h-6 text-white" />
                       </button>
 
                       {/* Image Indicators */}
@@ -217,11 +245,11 @@ const Projects = () => {
 
               
                 <div className="p-8">
-                  <h3 className="text-3xl font-bold text-slate-900 mb-4">
+                  <h3 className="text-3xl font-bold text-white mb-4">
                     {selectedProject.title}
                   </h3>
                   
-                  <p className="text-slate-600 mb-6 leading-relaxed text-lg">
+                  <p className="text-gray-400 mb-6 leading-relaxed text-lg">
                     {selectedProject.description}
                   </p>
                   
@@ -229,7 +257,7 @@ const Projects = () => {
                     {selectedProject.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="px-4 py-2 bg-slate-100 text-slate-700 rounded-full"
+                        className="px-4 py-2 bg-zinc-800 text-gray-300 rounded-full border border-zinc-700"
                       >
                         {tag}
                       </span>
