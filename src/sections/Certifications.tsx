@@ -78,7 +78,7 @@ export default function Certifications() {
   const [selectedCert, setSelectedCert] = useState<typeof certifications[0] | null>(null);
 
   return (
-    <section id="certifications" className="py-20 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-800 relative overflow-hidden">
+    <section id="certifications" className="py-20 bg-gradient-to-b from-emerald-50 via-white to-teal-50 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {staticAwards.map((award, i) => (
@@ -91,7 +91,7 @@ export default function Certifications() {
             }}
           >
             <Award 
-              className="text-blue-500/20" 
+              className="text-teal-300/30" 
               size={award.size}
               strokeWidth={1.5}
             />
@@ -119,7 +119,7 @@ export default function Certifications() {
             }}
           >
             <Award 
-              className="text-yellow-500/30" 
+              className="text-amber-400/40" 
               size={award.size}
               strokeWidth={2}
             />
@@ -135,8 +135,8 @@ export default function Certifications() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">Certifications</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">Certifications</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Professional certifications and achievements
           </p>
         </motion.div>
@@ -151,10 +151,10 @@ export default function Certifications() {
               viewport={{ once: true }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
               onClick={() => setSelectedCert(cert)}
-              className="bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 hover:border-zinc-700 transition-all cursor-pointer"
+              className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-teal-300 transition-all cursor-pointer shadow-md hover:shadow-lg"
             >
               {/* Certificate Image */}
-              <div className="h-48 overflow-hidden bg-zinc-950">
+              <div className="h-48 overflow-hidden bg-gray-50">
                 <img
                   src={cert.image}
                   alt={cert.title}
@@ -165,19 +165,16 @@ export default function Certifications() {
               {/* Certificate Info */}
               <div className="p-6">
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="bg-zinc-800 p-2 rounded-lg border border-zinc-700">
-                    <Award className="w-5 h-5 text-gray-300" />
+                  <div className="bg-teal-100 p-2 rounded-lg border border-teal-200">
+                    <Award className="w-5 h-5 text-teal-600" />
                   </div>
-                  <h3 className="font-bold text-lg flex-1 text-white">{cert.title}</h3>
+                  <h3 className="font-bold text-lg flex-1 text-gray-900">{cert.title}</h3>
                 </div>
-                <p className="text-gray-400 text-sm mb-1">{cert.issuer}</p>
+                <p className="text-gray-600 text-sm mb-1">{cert.issuer}</p>
                 <p className="text-gray-500 text-sm mb-2">{cert.date}</p>
                 {cert.description && (
-                  <p className="text-gray-400 text-sm mb-2 line-clamp-2">{cert.description}</p>
+                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">{cert.description}</p>
                 )}
-                <p className="text-xs text-gray-600 font-mono">
-                  ID: {cert.credentialId}
-                </p>
               </div>
             </motion.div>
           ))}
@@ -191,7 +188,7 @@ export default function Certifications() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedCert(null)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             >
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -199,18 +196,18 @@ export default function Certifications() {
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-zinc-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative border border-zinc-800"
+                className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative border border-gray-200 shadow-2xl"
               >
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedCert(null)}
-                  className="absolute top-4 right-4 z-10 p-2 bg-zinc-800/90 rounded-full hover:bg-zinc-700 transition-colors shadow-lg"
+                  className="absolute top-4 right-4 z-10 p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors shadow-lg"
                 >
-                  <X className="w-6 h-6 text-white" />
+                  <X className="w-6 h-6 text-gray-900" />
                 </button>
 
                 {/* Certificate Image */}
-                <div className={`w-full bg-zinc-950 flex items-center justify-center ${
+                <div className={`w-full bg-gray-50 flex items-center justify-center ${
                   selectedCert.credlyUrl ? 'p-8' : ''
                 }`}>
                   <img
@@ -223,27 +220,24 @@ export default function Certifications() {
                 {/* Certificate Details */}
                 <div className="p-8">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="bg-zinc-800 p-3 rounded-lg border border-zinc-700">
-                      <Award className="w-8 h-8 text-gray-300" />
+                    <div className="bg-teal-100 p-3 rounded-lg border border-teal-200">
+                      <Award className="w-8 h-8 text-teal-600" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-3xl font-bold text-white mb-2">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-2">
                         {selectedCert.title}
                       </h3>
-                      <p className="text-lg text-gray-400 mb-1">{selectedCert.issuer}</p>
+                      <p className="text-lg text-gray-600 mb-1">{selectedCert.issuer}</p>
                       <p className="text-gray-500 mb-3">{selectedCert.date}</p>
                       {selectedCert.description && (
-                        <p className="text-gray-400 mb-4">{selectedCert.description}</p>
+                        <p className="text-gray-600 mb-4">{selectedCert.description}</p>
                       )}
-                      <p className="text-sm text-gray-600 font-mono mb-4">
-                        Credential ID: {selectedCert.credentialId}
-                      </p>
                       {selectedCert.credlyUrl && (
                         <a
                           href={selectedCert.credlyUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200 transition-colors"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition-colors"
                         >
                           View on Credly
                         </a>

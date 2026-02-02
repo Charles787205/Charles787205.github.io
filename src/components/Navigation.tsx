@@ -10,7 +10,7 @@ const Navigation = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Determine active section
-      const sections = ['about', 'projects', 'skills', 'certifications', 'contact'];
+      const sections = ['about', 'experience', 'skills', 'certifications', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -31,7 +31,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
     { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' },
@@ -42,7 +42,7 @@ const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-900/90 backdrop-blur-md shadow-sm border-b border-slate-700' : 'bg-transparent'
+        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md border-b border-gray-200' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -51,7 +51,7 @@ const Navigation = () => {
             href="#"
             whileHover={{ scale: 1.05 }}
             className={`text-2xl font-bold transition-colors ${
-              isScrolled ? 'text-white' : 'text-white'
+              isScrolled ? 'text-gray-900' : 'text-gray-900'
             }`}
           >
             JCC
@@ -63,11 +63,11 @@ const Navigation = () => {
                 <a
                   href={item.href}
                   className={`transition-colors relative group ${
-                    isScrolled ? 'text-gray-400 hover:text-white' : 'text-gray-400 hover:text-white'
-                  } ${activeSection === item.href.slice(1) ? 'text-white font-semibold' : ''}`}
+                    isScrolled ? 'text-gray-600 hover:text-gray-900' : 'text-gray-600 hover:text-gray-900'
+                  } ${activeSection === item.href.slice(1) ? 'text-gray-900 font-semibold' : ''}`}
                 >
                   {item.name}
-                  <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full ${
+                  <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all group-hover:w-full ${
                     activeSection === item.href.slice(1) ? 'w-full' : ''
                   }`} />
                 </a>
@@ -81,8 +81,8 @@ const Navigation = () => {
             whileTap={{ scale: 0.95 }}
             className={`px-6 py-2 rounded-full transition-colors ${
               isScrolled 
-                ? 'bg-white text-black hover:bg-gray-200' 
-                : 'bg-white text-black hover:bg-gray-200'
+                ? 'bg-teal-600 text-white hover:bg-teal-700' 
+                : 'bg-teal-600 text-white hover:bg-teal-700'
             }`}
           >
             Hire Me

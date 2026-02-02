@@ -1,32 +1,63 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code2, Database, Wrench, Terminal } from 'lucide-react';
 
 interface Skill {
   name: string;
-  level: number;
-  category: string;
   iconUrl: string;
 }
 
-const skills: Skill[] = [
-  { name: "React", level: 90, category: "Frontend", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-  { name: "Next.js", level: 85, category: "Frontend", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
-  { name: "Tailwind CSS", level: 95, category: "Frontend", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
-  { name: "Django", level: 80, category: "Backend", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" },
-  { name: "Laravel", level: 75, category: "Backend", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" },
-  { name: "MongoDB", level: 70, category: "Database", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-  { name: "MySQL", level: 75, category: "Database", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
-  { name: "Java", level: 85, category: "Languages", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
-  { name: "Python", level: 80, category: "Languages", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
-  { name: "C#", level: 80, category: "Languages", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" },
-  { name: "PHP", level: 75, category: "Languages", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" },
-  { name: "JavaScript", level: 85, category: "Languages", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
-  { name: "TypeScript", level: 85, category: "Languages", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
-  { name: "Unity", level: 75, category: "Tools", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" },
-  { name: "Godot", level: 70, category: "Tools", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/godot/godot-original.svg" },
-  { name: "Git", level: 85, category: "Tools", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+interface SkillCategory {
+  category: string;
+  skills: Skill[];
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    category: 'Languages',
+    skills: [
+      { name: 'Java', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
+      { name: 'Python', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+      { name: 'C#', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg' },
+      { name: 'PHP', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
+      { name: 'JavaScript', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+      { name: 'TypeScript', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+      { name: 'Dart', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg' }
+    ]
+  },
+  {
+    category: 'Frontend',
+    skills: [
+      { name: 'React', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+      { name: 'Next.js', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
+      { name: 'Tailwind CSS', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'Flutter', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg' }
+    ]
+  },
+  {
+    category: 'Backend & APIs',
+    skills: [
+      { name: 'Django', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg' },
+      { name: 'Laravel', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
+      { name: 'REST APIs', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' }
+    ]
+  },
+  {
+    category: 'Databases',
+    skills: [
+      { name: 'MongoDB', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+      { name: 'MySQL', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+      { name: 'PostgreSQL', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' }
+    ]
+  },
+  {
+    category: 'Tools & Other',
+    skills: [
+      { name: 'Git', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+      { name: 'Unity', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg' },
+      { name: 'Godot', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/godot/godot-original.svg' }
+    ]
+  }
 ];
 
 const symbolChars = ['</>','{}','[]','()','//','*','#','@'];
@@ -39,37 +70,18 @@ const symbols = Array.from({ length: 30 }, () => ({
   xOffset: (Math.random() - 0.5) * 50,
 }));
 
-const getCategoryIcon = (category: string) => {
-  switch (category) {
-    case "Frontend":
-      return <Code2 className="w-6 h-6" />;
-    case "Backend":
-      return <Terminal className="w-6 h-6" />;
-    case "Database":
-      return <Database className="w-6 h-6" />;
-    case "Languages":
-      return <Code2 className="w-6 h-6" />;
-    case "Tools":
-      return <Wrench className="w-6 h-6" />;
-    default:
-      return <Code2 className="w-6 h-6" />;
-  }
-};
-
 const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const categories = Array.from(new Set(skills.map(s => s.category)));
-
   return (
-    <section id="skills" className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 py-20 relative overflow-hidden">
+    <section id="skills" className="min-h-screen bg-gradient-to-b from-teal-50 via-white to-emerald-50 py-20 relative overflow-hidden">
       {/* Animated Tech Pattern Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {symbols.map((item, i) => (
           <motion.div
             key={i}
-            className="absolute text-blue-500/30 font-mono text-4xl font-bold"
+            className="absolute text-teal-300/40 font-mono text-4xl font-bold"
             style={{
               left: item.left,
               top: item.top,
@@ -92,57 +104,50 @@ const Skills = () => {
         ))}
       </div>
       
-      <div className="max-w-6xl mx-auto px-6 relative z-10" ref={ref}>
-        <motion.h2
+      <div className="max-w-5xl mx-auto px-6 relative z-10" ref={ref}>
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-white mb-16 text-center"
+          className="text-center mb-16"
         >
-          Skills & Technologies
-        </motion.h2>
+          <h2 className="text-5xl font-bold text-gray-900 mb-4">Technical Skills</h2>
+          <p className="text-lg text-gray-600">Tools and technologies I use to build amazing projects.</p>
+        </motion.div>
 
-        <div className="space-y-12">
-          {categories.map((category, catIndex) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ delay: catIndex * 0.1, duration: 0.6 }}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-slate-800 rounded-lg border border-slate-700">
-                  {getCategoryIcon(category)}
-                </div>
-                <h3 className="text-2xl font-semibold text-gray-300">{category}</h3>
-              </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {skills
-                  .filter(skill => skill.category === category)
-                  .map((skill, index) => (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                      transition={{ delay: (catIndex * 0.1) + (index * 0.05), duration: 0.3 }}
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      className="bg-slate-800 border border-slate-700 rounded-xl p-4 flex flex-col items-center justify-center gap-3 hover:border-slate-600 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-200"
-                    >
-                      <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
-                        <img
-                          src={skill.iconUrl}
-                          alt={skill.name}
-                          className="w-10 h-10"
-                        />
-                      </div>
-                      <span className="text-white font-medium text-center text-sm">{skill.name}</span>
-                    </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
+        >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skillCategories.map((category, index) => (
+              <motion.div
+                key={category.category}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ delay: 0.3 + (index * 0.1), duration: 0.5 }}
+              >
+                <h3 className="text-lg font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
+                  {category.category}
+                </h3>
+                <ul className="space-y-2">
+                  {category.skills.map((skill) => (
+                    <li key={skill.name} className="text-gray-600 flex items-center gap-3">
+                      <img
+                        src={skill.iconUrl}
+                        alt={skill.name}
+                        className="w-5 h-5 flex-shrink-0"
+                      />
+                      <span>{skill.name}</span>
+                    </li>
                   ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
