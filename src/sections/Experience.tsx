@@ -17,7 +17,7 @@ const experiences: ExperienceItem[] = [
     title: 'Full-Stack Developer (Contract)',
     company: 'Freelance',
     location: 'Remote',
-    period: '2024 – 2025',
+    period: '2025',
     responsibilities: [
       'Developed a comprehensive logistics management dashboard using Next.js and Laravel for tracking delivery performance.',
       'Built RESTful APIs to handle delivery metrics (failed, delivered, etc.) for multiple distribution hubs.',
