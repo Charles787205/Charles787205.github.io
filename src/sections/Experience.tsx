@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, MapPin, Calendar } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, Building2 } from 'lucide-react';
 
 interface ExperienceItem {
   title: string;
@@ -14,23 +14,38 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: 'Full-Stack Developer (Contract)',
-    company: 'Freelance',
+    title: 'Software Developer — Transport Management System',
+    company: 'Resolvify',
+    location: 'Remote',
+    period: '2025 – Present',
+    responsibilities: [
+      'Developed a transport management system for managing day-to-day transportation and fleet operations.',
+      'Built modules for managing vehicles, drivers, vendors, trips, and related transport operations.',
+      'Designed RESTful APIs and backend services to support operational workflows and data management.',
+      'Implemented role-based access control and permission management for different system users.',
+      'Designed and optimized database structures for transport, fleet, and operational data.',
+      'Built reusable interfaces and business logic to streamline transport management workflows.',
+    ],
+    stack: 'Laravel, React, Inertia.js, TypeScript, MySQL',
+  },
+  {
+    title: 'Software Developer — Logistics Management System',
+    company: 'INT Logistics',
     location: 'Remote',
     period: '2024 – 2025',
     responsibilities: [
-      'Developed a comprehensive logistics management dashboard using Next.js and Laravel for tracking delivery performance.',
-      'Built RESTful APIs to handle delivery metrics (failed, delivered, etc.) for multiple distribution hubs.',
-      'Implemented real-time analytics and data visualization for logistics operations.',
-      'Designed MySQL database schema to efficiently store and query hub performance data.',
-      'Created intuitive UI for tracking performance per hub or across all hubs.',
-      'Optimized data queries for improved dashboard loading times and real-time updates.',
+      'Developed a logistics management dashboard for monitoring delivery operations and performance across multiple distribution hubs.',
+      'Built RESTful APIs for retrieving and processing operational data, including delivery, failed delivery, and hub performance metrics.',
+      'Implemented interactive analytics and data visualizations to help monitor logistics operations and identify performance trends.',
+      'Designed and optimized MySQL database structures and queries for efficient retrieval of operational data.',
+      'Developed interfaces for viewing performance at individual hubs and across the entire logistics network.',
+      'Improved application performance by optimizing database queries and data retrieval for dashboard views.',
     ],
     stack: 'Next.js, Laravel, MySQL, RESTful APIs',
   },
   {
     title: 'Web Development Intern',
-    company: 'Internship',
+    company: 'Mediaone Solutions',
     location: 'Remote',
     period: '2024',
     responsibilities: [
@@ -92,6 +107,10 @@ const Experience = () => {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{exp.title}</h3>
                   <div className="flex flex-wrap gap-4 text-gray-600 mb-4">
+                    <div className="flex items-center gap-2">
+                      <Building2 className="w-6 h-6 text-teal-600" />
+                      <span>{exp.company}</span>
+                    </div>
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4" />
                       <span>{exp.location}</span>

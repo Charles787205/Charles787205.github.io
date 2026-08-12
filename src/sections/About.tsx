@@ -59,18 +59,19 @@ const About = () => {
             className="max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-10 shadow-xl border border-white/50"
           >
             <div className="space-y-6">
-              <p className="text-md text-gray-800 leading-relaxed  font-light">
-                I'm a flexible web developer based in Davao City, Philippines, specializing in 
-                building full-stack applications from concept to deployment. I adapt quickly to new 
-                technologies and frameworks, whether working on frontend interfaces, backend APIs, or 
-                database design. With experience across multiple tech stacks, I bring versatility and 
-                problem-solving skills to every project.
+              <p className="text-md text-gray-800 leading-relaxed font-light text-justify">
+                I'm a software developer with experience building business applications and
+                operational systems. My work includes developing logistics and transport
+                platforms, backend APIs, database solutions, and intuitive web interfaces.
+                I enjoy solving practical problems through software, improving existing
+                systems, and building tools that make everyday business processes more
+                efficient.
               </p>
               
               <div className="space-y-3 pt-4 border-t border-gray-200">
                 <div className="flex items-center gap-3">
                   <span className="text-gray-900 font-semibold min-w-24">Location:</span>
-                  <span className="text-gray-700">Bago Aplaya, Davao City</span>
+                  <span className="text-gray-700">Davao City, Philippines</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-gray-900 font-semibold min-w-24">Email:</span>

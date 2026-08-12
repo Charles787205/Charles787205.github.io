@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-50 via-white to-emerald-50 relative overflow-hidden">
-      {/* Animated Background Elements */}
+      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating Circles */}
         {circles.map((circle, i) => (
@@ -87,7 +87,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto"
           >
-            Full Stack Developer & Creative Problem Solver
+            Software Developer & Systems Builder
           </motion.p>
           
           <motion.div
@@ -96,10 +96,18 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="flex flex-wrap justify-center gap-4 mb-8 text-gray-700"
           >
-            <span className="px-4 py-2 bg-teal-50 rounded-full border border-teal-200">Full Stack Development</span>
-            <span className="px-4 py-2 bg-teal-50 rounded-full border border-teal-200">Web Applications</span>
-            <span className="px-4 py-2 bg-teal-50 rounded-full border border-teal-200">UI/UX Design</span>
-            <span className="px-4 py-2 bg-teal-50 rounded-full border border-teal-200">Problem Solving</span>
+            <span className="px-4 py-2 bg-teal-50 rounded-full border border-teal-200">
+              Software Development
+            </span>
+            <span className="px-4 py-2 bg-teal-50 rounded-full border border-teal-200">
+              Business Systems
+            </span>
+            <span className="px-4 py-2 bg-teal-50 rounded-full border border-teal-200">
+              Business Automation
+            </span>
+            <span className="px-4 py-2 bg-teal-50 rounded-full border border-teal-200">
+              Logistics Technology
+            </span>
           </motion.div>
 
           <motion.div
