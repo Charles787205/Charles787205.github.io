@@ -139,7 +139,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.a
-            href="/MyResume.pdf"
+            href="/Jovian Charles Cañedo - Resume.pdf"
             download="Jovian_Charles_Canedo_Resume.pdf"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
