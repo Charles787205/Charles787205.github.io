@@ -1,156 +1,98 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import {
+  Code2,
+  Database,
+  Layers,
+  Boxes,
+  ShieldCheck,
+  Truck,
+  Workflow
+} from 'lucide-react';
+import { SKILL_CATEGORIES } from '../data/portfolioData';
 
-interface Skill {
-  name: string;
-  iconUrl: string;
-}
+const iconMap: Record<string, React.ElementType> = {
+  Layers: Layers,
+  Boxes: Boxes,
+  ShieldCheck: ShieldCheck,
+  Database: Database,
+  Truck: Truck,
+  Workflow: Workflow
+};
 
-interface SkillCategory {
-  category: string;
-  skills: Skill[];
-}
-
-const skillCategories: SkillCategory[] = [
-  {
-    category: 'Languages',
-    skills: [
-      { name: 'Java', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
-      { name: 'Python', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
-      { name: 'C#', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg' },
-      { name: 'PHP', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
-      { name: 'JavaScript', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-      { name: 'TypeScript', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
-      { name: 'Dart', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg' }
-    ]
-  },
-  {
-    category: 'Frontend',
-    skills: [
-      { name: 'React', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-      { name: 'Next.js', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
-      { name: 'Tailwind CSS', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
-      { name: 'Flutter', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg' }
-    ]
-  },
-  {
-    category: 'Backend & APIs',
-    skills: [
-      { name: 'Django', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg' },
-      { name: 'Laravel', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
-      { name: 'REST APIs', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' }
-    ]
-  },
-  {
-    category: 'Databases',
-    skills: [
-      { name: 'MongoDB', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
-      { name: 'MySQL', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
-      { name: 'PostgreSQL', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' }
-    ]
-  },
-  {
-    category: 'Tools & Other',
-    skills: [
-      { name: 'Git', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-      { name: 'Unity', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg' },
-      { name: 'Godot', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/godot/godot-original.svg' }
-    ]
-  }
-];
-
-const symbolChars = ['</>','{}','[]','()','//','*','#','@'];
-const symbols = Array.from({ length: 30 }, () => ({
-  symbol: symbolChars[Math.floor(Math.random() * 8)],
-  left: `${Math.random() * 100}%`,
-  top: `${Math.random() * 100}%`,
-  duration: Math.random() * 8 + 8,
-  delay: Math.random() * 5,
-  xOffset: (Math.random() - 0.5) * 50,
-}));
-
-const Skills = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
+export default function Skills() {
   return (
-    <section id="skills" className="min-h-screen bg-gradient-to-b from-teal-50 via-white to-emerald-50 py-20 relative overflow-hidden">
-      {/* Animated Tech Pattern Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {symbols.map((item, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-teal-300/40 font-mono text-4xl font-bold"
-            style={{
-              left: item.left,
-              top: item.top,
-            }}
-            animate={{
-              y: [0, -200],
-              x: [0, item.xOffset],
-              opacity: [0, 0.6, 0],
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: item.duration,
-              repeat: Infinity,
-              ease: "linear",
-              delay: item.delay,
-            }}
-          >
-            {item.symbol}
-          </motion.div>
-        ))}
-      </div>
-      
-      <div className="max-w-5xl mx-auto px-6 relative z-10" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl font-bold text-gray-900 mb-4">Technical Skills</h2>
-          <p className="text-lg text-gray-600">Tools and technologies I use to build amazing projects.</p>
-        </motion.div>
+    <section id="skills" className="py-28 relative bg-[#0a0f1d] overflow-hidden">
+      {/* Background radial gradient */}
+      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
-        >
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skillCategories.map((category, index) => (
-              <motion.div
-                key={category.category}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ delay: 0.3 + (index * 0.1), duration: 0.5 }}
-              >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
-                  {category.category}
-                </h3>
-                <ul className="space-y-2">
-                  {category.skills.map((skill) => (
-                    <li key={skill.name} className="text-gray-600 flex items-center gap-3">
-                      <img
-                        src={skill.iconUrl}
-                        alt={skill.name}
-                        className="w-5 h-5 flex-shrink-0"
-                      />
-                      <span>{skill.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
+            <Code2 className="w-3.5 h-3.5" />
+            <span>Technical Capabilities</span>
           </div>
-        </motion.div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Technical <span className="text-gradient-emerald">Skills</span>
+          </h2>
+          <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
+            Organized by discipline. Focused on technologies actively applied across production systems, databases, and architectural designs.
+          </p>
+        </div>
+
+        {/* Skills Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {SKILL_CATEGORIES.map((category, idx) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: idx * 0.08 }}
+              className={`rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-emerald-500/30 p-6 sm:p-7 shadow-lg backdrop-blur-md transition-all duration-200 flex flex-col justify-between ${
+                idx === 4 ? 'md:col-span-2 lg:col-span-2' : ''
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-white tracking-tight">
+                    {category.title}
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                  {category.description}
+                </p>
+
+                {/* Skills List */}
+                <div className="flex flex-wrap gap-2.5">
+                  {category.skills.map((skill) => {
+                    const CustomIcon = skill.iconName ? iconMap[skill.iconName] : null;
+                    return (
+                      <div
+                        key={skill.name}
+                        className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-950/70 border border-slate-800/90 hover:border-emerald-500/40 text-slate-200 text-xs sm:text-sm font-medium transition-all group"
+                      >
+                        {skill.iconUrl && (
+                          <img
+                            src={skill.iconUrl}
+                            alt=""
+                            className="w-4 h-4 object-contain shrink-0 group-hover:scale-110 transition-transform"
+                            loading="lazy"
+                          />
+                        )}
+                        {CustomIcon && (
+                          <CustomIcon className="w-4 h-4 text-emerald-400 shrink-0 group-hover:scale-110 transition-transform" />
+                        )}
+                        <span>{skill.name}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
-};
-
-export default Skills;
+}
