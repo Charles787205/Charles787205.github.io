@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a101d"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" fill="url(#tBg)"/>
+
+  <!-- Subtle grid lines -->
+  <g opacity="0.1" stroke="#0ea5e9" stroke-width="1">
+    <line x1="0" y1="85" x2="1200" y2="85" />
+    <line x1="0" y1="170" x2="1200" y2="170" />
+    <line x1="0" y1="255" x2="1200" y2="255" />
+    <line x1="0" y1="340" x2="1200" y2="340" />
+    <line x1="0" y1="425" x2="1200" y2="425" />
+    <line x1="0" y1="510" x2="1200" y2="510" />
+    <line x1="0" y1="595" x2="1200" y2="595" />
+    <line x1="200" y1="0" x2="200" y2="680" />
+    <line x1="400" y1="0" x2="400" y2="680" />
+    <line x1="600" y1="0" x2="600" y2="680" />
+    <line x1="800" y1="0" x2="800" y2="680" />
+    <line x1="1000" y1="0" x2="1000" y2="680" />
+  </g>
+
+  <!-- Title & Header -->
+  <text x="60" y="65" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700">Transport Management System — Operational Workflow &amp; Schema</text>
+  <text x="60" y="95" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="14">End-to-End Fleet Dispatching, Multi-Leg Trip Execution &amp; Waypoint Drop Architecture</text>
+
+  <!-- 1. Master Data Layer -->
+  <g transform="translate(60, 130)">
+    <rect width="320" height="490" rx="14" fill="#111827" stroke="#1e293b" stroke-width="1.5"/>
+    <rect x="16" y="16" width="288" height="38" rx="8" fill="url(#tealGrad)"/>
+    <text x="160" y="41" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">1. Master Entities &amp; Planning</text>
+    
+    <!-- Clients Card -->
+    <rect x="16" y="72" width="288" height="88" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="32" y="98" fill="#5eead4" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Clients &amp; Unified Locations</text>
+    <text x="32" y="118" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Corporate accounts ordering haulage</text>
+    <text x="32" y="138" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Swappable origins, hubs, and customer docks</text>
+
+    <!-- Fleet Assets Card -->
+    <rect x="16" y="174" width="288" height="88" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="32" y="200" fill="#5eead4" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Fleet &amp; Driver Roster</text>
+    <text x="32" y="220" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Vehicles (Plate, type, payload capacity)</text>
+    <text x="32" y="240" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Drivers &amp; Vendors with compliance logs</text>
+
+    <!-- Daily Planning Card -->
+    <rect x="16" y="276" width="288" height="100" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="32" y="302" fill="#5eead4" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Daily Demand Plans</text>
+    <text x="32" y="324" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Pre-dispatch requirements per route</text>
+    <text x="32" y="344" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Planned vehicle counts vs actual dispatches</text>
+    <text x="32" y="364" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Variance detection &amp; shortage alerts</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <path d="M 390 375 L 430 375" stroke="#14b8a6" stroke-width="2.5" marker-end="url(#arrow)" stroke-dasharray="6,4"/>
+
+  <!-- 2. Dispatch & Trip Execution Layer -->
+  <g transform="translate(440, 130)">
+    <rect width="360" height="490" rx="14" fill="#111827" stroke="#1e293b" stroke-width="1.5"/>
+    <rect x="16" y="16" width="328" height="38" rx="8" fill="url(#blueGrad)"/>
+    <text x="180" y="41" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">2. Duty Dispatch &amp; Trip Execution</text>
+
+    <!-- Dispatch Container -->
+    <rect x="16" y="72" width="328" height="110" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="32" y="98" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Dispatches (`dispatches`)</text>
+    <text x="32" y="118" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Assigned vehicle + driver duty shift per client</text>
+    <text x="32" y="136" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Service type: `regular` vs `oncall` dispatches</text>
+    <text x="32" y="156" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Shift odometer start / end verification</text>
+
+    <!-- Trip Legs Card -->
+    <rect x="16" y="196" width="328" height="160" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="32" y="222" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Multi-Leg Trips (`trip_legs`)</text>
+    <text x="32" y="242" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Leg 1: BU ➔ Distribution Center</text>
+    <text x="32" y="260" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Leg 2: Distribution Center ➔ Client Hub</text>
+    <text x="32" y="278" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Leg 3: Return Backhaul Trip</text>
+    <text x="32" y="302" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Linehaul Trip # · Parcel Count · Timestamps</text>
+    <text x="32" y="322" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11">States: pending ➔ in_transit ➔ delivered</text>
+
+    <!-- Waypoint Drops -->
+    <rect x="16" y="370" width="328" height="95" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="32" y="394" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Route Waypoint Drops (`drops`)</text>
+    <text x="32" y="414" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Sequential drop-off stops along a specific leg</text>
+    <text x="32" y="432" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Drop sequence (1, 2, 3...) · Parcel count per stop</text>
+    <text x="32" y="450" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Arrival and departure timestamp verification</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <path d="M 810 375 L 850 375" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+  <!-- 3. Operations & Reporting Layer -->
+  <g transform="translate(860, 130)">
+    <rect width="280" height="490" rx="14" fill="#111827" stroke="#1e293b" stroke-width="1.5"/>
+    <rect x="16" y="16" width="248" height="38" rx="8" fill="url(#amberGrad)"/>
+    <text x="140" y="41" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">3. Operations &amp; Auditing</text>
+
+    <!-- RBAC -->
+    <rect x="16" y="72" width="248" height="110" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="28" y="98" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="13" font-weight="700">RBAC &amp; Permissions</text>
+    <text x="28" y="118" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Dispatcher, Hub Supervisor,</text>
+    <text x="28" y="136" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Client Viewer &amp; Superadmin roles</text>
+    <text x="28" y="156" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Strict scope-based data isolation</text>
+
+    <!-- Performance -->
+    <rect x="16" y="196" width="248" height="120" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="28" y="222" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Operational Analytics</text>
+    <text x="28" y="242" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Fleet utilization percentage</text>
+    <text x="28" y="260" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">On-time dispatch SLA tracking</text>
+    <text x="28" y="278" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Foul trip &amp; cancellation root-cause</text>
+    <text x="28" y="298" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Total mileage &amp; fuel log auditing</text>
+
+    <!-- Tech Stack -->
+    <rect x="16" y="330" width="248" height="135" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="28" y="356" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Tech Foundation</text>
+    <text x="28" y="378" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">• Laravel 11 Backend Services</text>
+    <text x="28" y="398" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">• React + Inertia.js + TypeScript</text>
+    <text x="28" y="418" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">• MySQL with Indexed Foreign Keys</text>
+    <text x="28" y="438" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">• Modular Route Service Architecture</text>
+  </g>
+</svg>
